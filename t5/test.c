@@ -8,7 +8,7 @@ int not_executed() {
 }
 
 int main(int count, char *argument[]) {
-  char buffer[100];
+  char buffer[300];
   
   if (count < 2) {
     printf("Se debe ingresar texto como entrada. Saliendo...\n");
